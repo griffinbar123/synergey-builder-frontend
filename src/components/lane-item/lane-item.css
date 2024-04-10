@@ -1,0 +1,24 @@
+.lane-item {
+    aspect-ratio: 1 / 1;
+    width: 3%;
+    object-fit: contain;
+    padding: 0px;
+    color:black;
+    /* overflow: scroll; */
+    background-color: #091428;  
+    text-align: center;
+    /* background-color: blue; */
+    position: relative;
+}
+
+.lane-item img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    /* margin: auto; */
+    margin: 0px;
+  }
+

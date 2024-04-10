@@ -1,0 +1,65 @@
+.win-percentage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+}
+
+.bar {
+    height: 1vh;
+    width: 100%;
+    background: black;
+    display: flex;
+}
+
+.blue-bar {
+    background: linear-gradient(to right, #0089c4, #0397AB);
+    height: 100%;
+} 
+  
+
+.red-bar {
+    background: linear-gradient(to left, #c72f00, #f74610);
+    height: 100%;
+}
+
+.victories {
+    display: flex;
+    height: 5vh;
+    justify-content: space-between;
+}
+
+.image img {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.image {
+    aspect-ratio: 1.25806451613 / 1;
+    height: 100%;
+    object-fit: contain;
+    padding: 0px;
+    position: relative;
+}
+
+.blue-victory {
+    background: linear-gradient(to top, #005A82, #0397AB);
+}
+
+.red-victory {
+    background: linear-gradient(to top, #932402, #f74610);
+}
+
+.text-percent {
+    font-size: 1.5em;
+}
+
+.blue-color {
+    color: #0397AB;
+}
+
+.red-color {
+    color: #f74610;
+}

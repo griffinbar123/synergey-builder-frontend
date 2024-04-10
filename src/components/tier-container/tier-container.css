@@ -1,0 +1,7 @@
+.tier-container {
+    display: flex;
+    width: 100%;
+    /* height: 100%; */
+    justify-content: space-around;
+    margin: 1vh 0;
+}

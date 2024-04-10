@@ -26,10 +26,8 @@ function App() {
     setShowWinOrLoad(false)
     const champs2 = champs.map((c, i) => {
       if (i === index) {
-        // Increment the clicked counter
         return name;
       } else {
-        // The rest haven't changed
         return c;
       }
     });

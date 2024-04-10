@@ -9,9 +9,11 @@ async function getWinner(tier, champs) {
       headers: { 'Content-Type': 'application/json'},
       xhrFields : {withCredentials: true},
       body: JSON.stringify({"tier":tier, "participants": champs})
-  }; // https://synergy-builder-server.onrender.com
-  // http://localhost:5000
-  var res = await fetch("http://localhost:5000/api/champs", requestOptions)
+  };
+  let url = "https://synergy-builder-server.onrender.com"
+  // let url = "http://localhost:5000"
+
+  var res = await fetch(`${url}/api/champs`, requestOptions)
   return await res.json()
   }
   

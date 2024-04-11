@@ -6,15 +6,43 @@
             radial-gradient(ellipse at bottom, #005A82, transparent);
     /* background-color: #1E262A; */
     width: 100%;
-    padding: 1em;
 }
 
-.text-size {
+/* .text-size {
     font-size: 1em;
+} */
+
+@media screen and ((max-height: 400px) or (max-width: 400px)) {
+
+    .text-size {
+        font-size: 8px;
+        padding: 4px;
+    }
+    
+    .predict-button-module {
+        margin-top: 2vh;
+        padding: 0.1em;
+    }
 }
-.module-button {
+
+@media screen and ((min-height: 400px) and (min-width: 400px)) {
+
+    .text-size {
+        font-size: 0.8em;
+        padding: 1em;
+    }
+    
+    .predict-button-module {
+        margin-top: 3vh;
+        padding: 0.2em;
+    }
+}
+
+
+
+/* .module-button {
     padding: 0.2em;
-}
+} */
 
 
 .predict-button-module {
@@ -23,7 +51,7 @@
     /* max-height: 10vh; */
     min-width: 40%;
     /* max-width: 40%; */
-    margin: 4vh 0 0 0;
+    /* margin: 4vh 0 0 0; */
     /* margin: 0.5rem; */
 }
 

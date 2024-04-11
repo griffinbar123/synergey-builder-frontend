@@ -1,3 +1,16 @@
 .win-or-load {
+    margin-top: 2vh;
     width: 100%;
+    text-align: center;
+}
+
+.loading-text {
+    /* width: 100%; */
+    text-align: center;
+    color: #C8AA6E;
+}
+
+.error-text {
+    text-align: center;
+    color: #f74610;
 }

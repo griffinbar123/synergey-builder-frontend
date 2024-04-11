@@ -52,8 +52,22 @@
     background: linear-gradient(to top, #932402, #f74610);
 }
 
-.text-percent {
+/* .text-percent {
     font-size: 1.5em;
+} */
+
+@media screen and (max-height: 400px) {
+
+    .text-percent {
+        font-size: 1.0em;
+    }
+}
+
+@media screen and (min-height: 400px) {
+
+    .text-percent {
+        font-size: 1.5em;
+    }
 }
 
 .blue-color {

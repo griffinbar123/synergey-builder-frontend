@@ -1,6 +1,6 @@
 import React from 'react'
 import './champions-container.css'
-import ChampionPicker from '../champion_picker.jsx/champion-picker'
+import ChampionPicker from '../champion-picker/champion-picker'
 
 function ChampionsContainer({champs, setChamps, startId, blue_team}) {
   let sub = blue_team ? 0 : 5

@@ -18,6 +18,8 @@ function App() {
   const [showWinOrLoad, setShowWinOrLoad] = useState(false)
   // const [win, setWin] = useState(false)
 
+  var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
   function submitChamps(){
     setShowWinOrLoad(true)
   }
@@ -26,14 +28,19 @@ function App() {
     setShowWinOrLoad(false)
     const champs2 = champs.map((c, i) => {
       if (i === index) {
-        return name;
+        return name
       } else {
-        return c;
+        return c
       }
     });
     setChamps(champs2)
   }
-  // console.log("heree", champs)
+  function modifyTierIndex(tierI) {
+    setShowWinOrLoad(false)
+    setTierIndex(tierI);
+  }
+
+  // console.log("champs", champs)
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -43,10 +50,11 @@ function App() {
           <p>
             some sort of really cool tagline describing our websites wonderful capabilities
           </p>
+          {isSafari && <p className='safari-text'>We do not recommend using Safari as your browser, as there are slight visual problems with its interaction with our tool.</p>}
         </div>
         <div className='predict-tool'>
-        <div className='champs champs-margin'>
-            <TierContainer tiers={tiers} selectedIndex={tierIndex} setTierIndex = {setTierIndex}/>
+        <div className={`champs champs-margin ${showWinOrLoad ? "champs-aspect-percentage" : "champs-aspect-normal"}`}>
+            <TierContainer tiers={tiers} selectedIndex={tierIndex} setTierIndex = {modifyTierIndex}/>
             <LaneContainer/>
             <ChampionsContainer champs={champs.slice(0, 5)} setChamps={modifyChamps} startId={0} blue_team = {true}/>
             <span className='vs'>VS</span>

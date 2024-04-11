@@ -29,6 +29,15 @@ function WinOrLoad({tier, champs}) {
 
     // const ref = useRef(null);
     const [width, setWidth] = useState(100);
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+      const id = setInterval(() => setCount((oldCount) => oldCount + 1), 1000);
+  
+      return () => {
+        clearInterval(id);
+      };
+    }, []);
 
     useEffect(() => {
         const resizeObserver = new ResizeObserver((event) => {
@@ -42,8 +51,9 @@ function WinOrLoad({tier, champs}) {
 
   return (
     <div id="win-or-load" className='win-or-load'>
-        {isLoading && <span>loading...</span>}
+        {isLoading && <span className='loading-text'>Loading... (For the inititial request, loading may take up to 50 seconds): {count} </span>}
         {!isLoading && data != null && data.status_code === 200 && <WinPercantage width={width} percentage={data.win}/>}
+        {!isLoading && data != null && data.status_code === 400 && <span className='error-text'>Error: {data.message}</span>}
     </div>
   )
 }

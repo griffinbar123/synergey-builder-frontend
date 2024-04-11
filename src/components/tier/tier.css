@@ -9,7 +9,6 @@
     color:rgb(255, 255, 255);
     text-align: center;
     padding: 4px;
-    font-size: 0.6em;
     font-weight: 300;
 }
 
@@ -36,3 +35,27 @@
   .tier-name {
     padding-top: 5px;
   }
+
+@media screen and ((max-height: 400px) or (max-width: 400px)) {
+    .tier {
+        font-size: 4px;
+    }
+}
+
+@media screen and (min-height: 400px) and (min-width: 400px) {
+    .tier {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-height: 515px) and (min-height: 400px) and (max-width: 515px) and (min-width: 400px) {
+    .tier {
+        font-size: 8px;
+    }
+}
+
+@media screen and ((min-height: 515px) and (min-width:515px)) {
+    .tier {
+        font-size: 0.6em;
+    }
+}

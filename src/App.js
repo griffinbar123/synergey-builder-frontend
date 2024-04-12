@@ -68,7 +68,7 @@ function App() {
         </div>
         <PredictButton submitChamps={submitChamps}/>
         </div>
-        {filenames.map((f) => <div className='hidden-div'><img src={`/images/loading/${f}_0.png`} alt=''/></div>)}
+        {filenames.map((f) => <div className='hidden-div'><img src={`/images/champion/${f}.png`} alt=''/><img src={`/images/loading/${f}_0.png`} alt=''/></div>)}
       </div>
     </QueryClientProvider>
   );

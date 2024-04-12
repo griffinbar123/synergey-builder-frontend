@@ -23,7 +23,27 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
     // setImage(file)
     setShowDropdown(true)
   }
+
+  function getLastUpperIndex(s) {
+    var ind = 0
+    for(let i = 0; i < s.length; i++) {
+      if(s[i] === s[i].toUpperCase()) {
+        ind = i
+      }
+    }
+    return ind
+  }
   
+  function formatName(s){
+    if(s === 'plus_sign')
+      return ""
+    if(s === "MonkeyKing")
+      return "Wukong"
+    let lastInd = getLastUpperIndex(s)
+    if(lastInd > 0)
+      return s.substring(0, lastInd) + " " + s.substring(lastInd, s.length)
+    return s
+  }
 
 
   // console.log(filenames)
@@ -35,9 +55,12 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
         }_0.png`} alt={`${champ}`}/> :
           <div className='champion_choose'>
           {filenames.map((f, index) => 
-          <div key = {index} className='champion_icon_div champs-icon-width' >
-            <img onClick={() => selectImage(f)} src={`/images/champion/${f}.png`} alt={`${f}`}/>
+          <div key ={index} className={`champion-icon-container champs-icon-width ${f === champ && f !== "plus_sign" ? "champion-icon-container-selected" : ""}`}>
+            <div className={` ${f === "plus_sign" ? "plus-sign-div" : "champion_icon_div" }'`} >
+              <img onClick={() => selectImage(f)} src={`/images/champion/${f}.png`} alt={`${f}`}/>
             </div>
+            <span className='champion-name-text champion-name-text-size'>{formatName(f)}</span>
+          </div>
           )}
           </div>}
       </div>

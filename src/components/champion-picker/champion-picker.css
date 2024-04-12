@@ -1,6 +1,6 @@
 .champion_picker_container {
-    /* width: fit-content; 
-    height: fit-content; */
+    width: fit-content; 
+    height: fit-content; 
     padding: 0px;
     color:black;
     background-color: #091428;  
@@ -44,13 +44,15 @@
 
 .champion-border-module {
     aspect-ratio: 1 / 1.81818181818;
-    max-width: 17%;
+    max-width: min(17%, fit-content);
     /* min-width:5%; */
-    max-height: 100%; 
+    width: 17%;
+    max-height: min(100%, fit-content); 
     padding: 1rem;
     position: relative;
     overflow: hidden;
     padding: 3px;
+    display: flex;
 }
 
 

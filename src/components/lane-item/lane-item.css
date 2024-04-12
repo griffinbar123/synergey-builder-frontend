@@ -1,7 +1,6 @@
 .lane-item {
     aspect-ratio: 1 / 1;
     width: 3%;
-    max-height: 100%;
     object-fit: contain;
     padding: 0px;
     color:black;
@@ -10,7 +9,6 @@
     text-align: center;
     /* background-color: blue; */
     position: relative;
-    /* flex-grow: 10; */
 }
 
 .lane-item img {

@@ -49,10 +49,11 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
   // console.log(filenames)
   
   return ( 
-    <div className={`champion-border-module ${style} ${isSafari ? "safari-width":  "" } ${showDropdown ? "overflow-scroll" : "overflow-hidden"}`}>
-      {/* <div className={`champion_picker_container ${showDropdown ? "overflow-scroll" : "overflow-hidden"}`}> */}
-        {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ}_0.png`} alt={`${champ}`}/> :
-        <div className='champion_choose'>
+    <div className={`champion-border-module ${style} ${isSafari ? "safari-width":  ""}`}>
+      <div className={`champion_picker_container ${showDropdown ? "overflow-scroll" : "overflow-hidden"}`}>
+        {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ
+        }_0.png`} alt={`${champ}`}/> :
+          <div className='champion_choose'>
           {filenames.map((f, index) => 
           <div key ={index} className={`champion-icon-container champs-icon-width ${f === champ && f !== "plus_sign" ? "champion-icon-container-selected" : ""}`}>
             <div className={` ${f === "plus_sign" ? "plus-sign-div" : "champion_icon_div" }'`} >
@@ -61,8 +62,8 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
             <span className='champion-name-text champion-name-text-size'>{formatName(f)}</span>
           </div>
           )}
-        </div>}
-      {/* </div> */}
+          </div>}
+      </div>
     </div>
   )
 }

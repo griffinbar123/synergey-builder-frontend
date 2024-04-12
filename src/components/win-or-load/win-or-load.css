@@ -1,10 +1,7 @@
 .win-or-load {
-    position: absolute;
-    bottom: -5vh;
-    /* margin-top: 2vh; */
+    margin-top: 2vh;
     width: 100%;
     text-align: center;
-    /* margin-bottom: 2vh; */
 }
 
 .loading-text {

@@ -23,10 +23,6 @@
         margin-top: 2vh;
         padding: 0.1em;
     }
-
-    .win-or-load-present {
-        margin-top: 6vh;
-    }
 }
 
 @media screen and ((min-height: 400px) and (min-width: 400px)) {
@@ -39,10 +35,6 @@
     .predict-button-module {
         margin-top: 3vh;
         padding: 0.2em;
-    }
-
-    .win-or-load-present {
-        margin-top: 8vh;
     }
 }
 

@@ -5,38 +5,12 @@ import PredictButton from './components/predict-button/predict-button';
 import TierContainer from './components/tier-container/tier-container';
 import LaneContainer from './components/lane-container/lane-container';
 import WinOrLoad from './components/win-or-load/win-or-load';
-import {useQuery} from "react-query"
 
 
 let tiers = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"]
 
-const filenames = [
-  "plus_sign","Aatrox","Ahri","Akali","Akshan","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","AurelionSol","Azir","Bard","Belveth","Blitzcrank","Brand","Braum","Briar","Caitlyn","Camille","Cassiopeia","Chogath","Corki","Darius","Diana","Draven","DrMundo","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Gwen","Hecarim","Heimerdinger","Hwei","Illaoi","Irelia","Ivern","Janna","JarvanIV","Jax","Jayce","Jhin","Jinx","Kaisa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","Khazix","Kindred","Kled","KogMaw","KSante","Leblanc","LeeSin","Leona","Lillia","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","MasterYi","Milio","MissFortune","MonkeyKing","Mordekaiser","Morgana","Naafiri","Nami","Nasus","Nautilus","Neeko","Nidalee","Nilah","Nocturne","Nunu","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","RekSai","Rell","Renata","Renekton","Rengar","Riven","Rumble","Ryze","Samira","Sejuani","Senna","Seraphine","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Smolder","Sona","Soraka","Swain","Sylas","Syndra","TahmKench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","TwistedFate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","Velkoz","Vex","Vi","Viego","Viktor","Vladimir","Volibear","Warwick","Xayah","Xerath","XinZhao","Yasuo","Yone","Yorick","Yuumi","Zac","Zed","Zeri","Ziggs","Zilean","Zoe","Zyra"
-  ]
-
-async function startServer() {
-  let tier = "IRON"
-  let champs = filenames.slice(1, 11)
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      xhrFields : {withCredentials: true},
-      body: JSON.stringify({"tier":tier, "participants": champs})
-  };
-  let url = "https://synergy-builder-server.onrender.com"
-  // let url = "http://localhost:5000"
-
-  var res = await fetch(`${url}/api/champs`, requestOptions)
-  return await res.json()
-  }
 
 function App() {
-  const data = useQuery({
-    queryKey: ['getServerStart'],
-    queryFn: () => startServer(),
-    throwOnError: true,
-    // onError: () => {console.log("erro")}
-  })
   const [champs, setChamps] = useState(["plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign"]);
   const [tierIndex, setTierIndex] = useState(0)
   const [showWinOrLoad, setShowWinOrLoad] = useState(false)
@@ -87,7 +61,6 @@ function App() {
         </div>
         <PredictButton submitChamps={submitChamps}/>
         </div>
-        {filenames.map((f, index) => <div key={index} className='hidden-div'><img src={`/images/champion/${f}.png`} alt=''/><img src={`/images/loading/${f}_0.png`} alt=''/>{JSON.stringify(data)}</div>)}
       </div>
   );
 }

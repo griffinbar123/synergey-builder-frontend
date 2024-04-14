@@ -47,7 +47,7 @@ function App() {
           <p>
             some sort of really cool tagline describing our websites wonderful capabilities
           </p>
-          {isSafari && <p className='safari-text'>We do not recommend using Safari as your browser, as there are slight visual problems with its interaction with our tool.</p>}
+          {isSafari && false && <p className='safari-text'>We do not recommend using Safari as your browser, as there are slight visual problems with its interaction with our tool.</p>}
         </div>
         <div className='predict-tool'>
         <div className={`champs champs-margin ${showWinOrLoad ? "champs-aspect-percentage" : "champs-aspect-normal"}`}>

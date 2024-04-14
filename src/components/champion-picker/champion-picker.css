@@ -9,10 +9,10 @@
     position: relative;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    overflow: hidden;
+    overflow: scroll;
 }
 
-.hampion-border-module::-webkit-scrollbar {
+.champion-border-module::-webkit-scrollbar {
     display: none;
 }
 
@@ -31,23 +31,36 @@
 }
 
 .champion_picker_container img {
+    /* aspect-ratio: 1 / 1.81818181818; */
     display: block;
     max-height: 100%;
     max-width: 100%;
     overflow: hidden;
     margin: 0px;
+    background-color: green;
   }
 
-.safari-width {
+/* .safari-width {
     width: 17%;
+} */
+
+.safari-container {
+    /* width: 17%; */
+    max-height: 100%;
 }
 
-.champion-border-module {
+.module-aspect-ratio {
     aspect-ratio: 1 / 1.81818181818;
+}
+
+
+.champion-border-module {
+    /* aspect-ratio: 1 / 1.81818181818; */
     max-width: min(17%, fit-content);
     /* min-width:5%; */
     width: 17%;
     max-height: min(100%, fit-content); 
+    /* max-height: min(100%, );  */
     padding: 1rem;
     position: relative;
     overflow: hidden;

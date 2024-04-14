@@ -33,6 +33,7 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
     }
     return ind
   }
+
   
   function formatName(s){
     if(s === 'plus_sign')
@@ -49,7 +50,7 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
   // console.log(filenames)
   
   return ( 
-    <div className={`champion-border-module ${style} ${isSafari ? "safari-width":  ""}`}>
+    <div className={`champion-border-module ${style} ${showDropdown && "module-aspect-ratio"} ${isSafari ? "safari-container":  ""}`}>
       <div className={`champion_picker_container ${showDropdown ? "overflow-scroll" : "overflow-hidden"}`}>
         {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ
         }_0.png`} alt={`${champ}`}/> :

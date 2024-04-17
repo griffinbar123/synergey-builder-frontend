@@ -52,8 +52,7 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
   return ( 
     <div className={`champion-border-module ${style} ${showDropdown && "module-aspect-ratio"} ${isSafari ? "safari-container":  ""}`}>
       <div className={`champion_picker_container ${showDropdown ? "overflow-scroll" : "overflow-hidden"}`}>
-        {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ
-        }_0.png`} alt={`${champ}`}/> :
+        {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ}_0.png`} alt={`${champ}`}/> :
           <div className='champion_choose'>
           {filenames.map((f, index) => 
           <div key ={index} className={`champion-icon-container champs-icon-width ${f === champ && f !== "plus_sign" ? "champion-icon-container-selected" : ""}`}>

@@ -34,6 +34,7 @@ function App() {
 //     }
 //  }, [showWinOrLoad])
 
+
   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
   function submitChamps(){

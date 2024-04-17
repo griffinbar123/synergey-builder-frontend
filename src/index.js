@@ -28,6 +28,13 @@ root.render(
       </QueryClientProvider>
     </AnimatePresence>
     <div style={{position: 'absolute', left: 0, right: 0, width: "1px", height: "1px", overflow: "hidden"}}>
+    <img src={`/images/tiers/IRON.png`} alt={``}/>
+    <img src={`/images/tiers/BRONZE.png`} alt={``}/>
+    <img src={`/images/tiers/SILVER.png`} alt={``}/>
+    <img src={`/images/tiers/GOLD.png`} alt={``}/>
+    <img src={`/images/tiers/PLATINUM.png`} alt={``}/>
+    <img src={`/images/tiers/EMERALD.png`} alt={``}/>
+    <img src={`/images/tiers/DIAMOND.png`} alt={``}/>
       {filenames.map((f) => 
         <>
           <img src={`/images/champion/${f}.png`} alt=''/>

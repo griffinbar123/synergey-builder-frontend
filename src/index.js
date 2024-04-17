@@ -21,7 +21,7 @@ root.render(
       {filenames.map((f) => 
         <>
           <img src={`/images/champion/${f}.png`} alt=''/>
-          <img srx={`/images/loading/${f}_0.png`} alt=''/>
+          <img src={`/images/loading/${f}_0.png`} alt=''/>
         </>
       )}
   </div>

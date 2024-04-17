@@ -7,6 +7,7 @@ import LaneContainer from './components/lane-container/lane-container';
 import WinOrLoad from './components/win-or-load/win-or-load';
 import { motion } from "framer-motion"
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react"
 
 
 
@@ -83,6 +84,7 @@ function App() {
           <PredictButton submitChamps={submitChamps}/>
         </motion.div>
         <SpeedInsights />
+        <Analytics/>
       </div>
   );
 }

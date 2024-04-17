@@ -9,6 +9,16 @@ const filenames = [
   ]  
 const queryClient = new QueryClient()
 
+const requestOptions = {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json'},
+  xhrFields : {withCredentials: true},
+  body: JSON.stringify({"tier":"IRON", "participants": filenames.slice(1, 11)})
+};
+let url = "https://synergy-builder-server.onrender.com"
+// let url = "http://localhost:5000"
+fetch(`${url}/api/champs`, requestOptions)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

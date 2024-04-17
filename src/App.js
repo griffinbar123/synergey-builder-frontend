@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import ChampionsContainer from './components/champions-container/champions-container';
 import PredictButton from './components/predict-button/predict-button';
@@ -15,34 +15,24 @@ function App() {
   const [champs, setChamps] = useState(["plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign", "plus_sign"]);
   const [tierIndex, setTierIndex] = useState(0)
   const [showWinOrLoad, setShowWinOrLoad] = useState(false)
-  // const [scope, animate] = useAnimate()
-  // const [isPresent, safeToRemove] = usePresence()
-  // const isInView = useInView(scope)
-  
-  //   useEffect(() => {
-  //     if (isInView) {
-  //       animate(scope.current, { opacity: 1 })
-  //     }
-  //   }, [isInView])
-  
+//   const [scope, animate] = useAnimate()
 //   useEffect(() => {
-//     if (isPresent) {
+//     if (showWinOrLoad) {
 //       const enterAnimation = async () => {
-//         await animate(scope.current, { opacity: 1 })
-//         await animate("div", { opacity: 1, x: 0 })
+//         await animate(scope.current, { opacity: 0 })
+//         // await animate("div", { opacity: 1, x: 0 })
 //       }
 //       enterAnimation()
 
 //     } else {
 //       const exitAnimation = async () => {
-//         await animate("div", { opacity: 0, x: -100 })
-//         await animate(scope.current, { opacity: 0 })
-//         safeToRemove()
+//         // await animate("div", { opacity: 0, x: -100 })
+//         await animate(scope.current, { opacity: 1 })
 //       }
       
 //       exitAnimation()
 //     }
-//  }, [isPresent])
+//  }, [showWinOrLoad])
 
   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
@@ -78,7 +68,7 @@ function App() {
           {isSafari && false && <p className='safari-text'>We do not recommend using Safari as your browser, as there are slight visual problems with its interaction with our tool.</p>}
         </motion.div>
         <motion.div initial={{ opacity: 0.0 }} whileInView={{ opacity: 1}} transition={{duration: 1}} className='predict-tool'>
-          <div className={`champs champs-margin ${showWinOrLoad ? "champs-aspect-percentage" : "champs-aspect-normal"}`}>
+          <motion.div layout={false} transition={{duration: 0.6}}  className={`champs champs-margin ${showWinOrLoad ? "champs-aspect-percentage" : "champs-aspect-normal"}`}>
               <TierContainer tiers={tiers} selectedIndex={tierIndex} setTierIndex = {modifyTierIndex}/>
               <LaneContainer/>
               <ChampionsContainer champs={champs.slice(0, 5)} setChamps={modifyChamps} startId={0} blue_team = {true}/>
@@ -86,7 +76,7 @@ function App() {
               <ChampionsContainer champs={champs.slice(5, 10)} setChamps={modifyChamps} startId={5} blue_team = {false}/>
               <LaneContainer/>
           {showWinOrLoad && <WinOrLoad tier={tiers[tierIndex]} champs={champs}/>}
-          </div>
+          </motion.div>
           <PredictButton submitChamps={submitChamps}/>
         </motion.div>
       </div>

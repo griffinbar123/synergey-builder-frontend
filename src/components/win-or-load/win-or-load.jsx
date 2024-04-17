@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import "./win-or-load.css"
 import {useQuery} from "react-query"
 import WinPercantage from '../win-percentage/win-percentage';
+import { motion } from 'framer-motion';
 
 async function getWinner(tier, champs) {
     const requestOptions = {
@@ -50,11 +51,11 @@ function WinOrLoad({tier, champs}) {
     });
 
   return (
-    <div id="win-or-load" className='win-or-load'>
+    <motion.div initial={{ opacity: 0 }} transition={{duration: 0.3}} animate={{ opacity: 1 }} exit={{ opacity: 0 }} id="win-or-load" className='win-or-load'>
         {isLoading && <span className='loading-text'>Loading... (For the inititial request, loading may take up to 50 seconds): {count} </span>}
         {!isLoading && data != null && data.status_code === 200 && <WinPercantage width={width} percentage={data.win}/>}
         {!isLoading && data != null && data.status_code === 400 && <span className='error-text'>Error: {data.message}</span>}
-    </div>
+    </motion.div>
   )
 }
 

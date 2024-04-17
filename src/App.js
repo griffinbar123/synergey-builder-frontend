@@ -6,7 +6,7 @@ import TierContainer from './components/tier-container/tier-container';
 import LaneContainer from './components/lane-container/lane-container';
 import WinOrLoad from './components/win-or-load/win-or-load';
 import { motion } from "framer-motion"
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
 
 

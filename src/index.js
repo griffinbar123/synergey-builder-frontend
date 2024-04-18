@@ -36,11 +36,11 @@ root.render(
     <img src={`/images/tiers/PLATINUM.png`} alt={``}/>
     <img src={`/images/tiers/EMERALD.png`} alt={``}/>
     <img src={`/images/tiers/DIAMOND.png`} alt={``}/>
-      {filenames.map((f) => 
-        <>
+      {filenames.map((f, index) => 
+        <div key={index}>
           <img src={`/images/champion/${f}.png`} alt=''/>
           <img src={`/images/loading/${f}_0.png`} alt=''/>
-        </>
+        </div>
       )}
   </div>
   </React.StrictMode>

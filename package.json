@@ -2,7 +2,7 @@
   "name": "syngergy_builder",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://synergy-builder-server.onrender.com",
+  "proxy": "https://synergy-builder-server.onrender-1.com",
   "dependencies": {
     "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.17.0",

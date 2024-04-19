@@ -10,9 +10,12 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
   let style = blue_team ? "blue-style" : "red-style"
   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   const [showDropdown, setShowDropdown] = useState(false)
-  if(id === 0){
-  // console.log(showDropdown)
+  const [champName, setChampName] = useState("")
+
+  function handleType(text) {
+    setChampName(text)
   }
+
 
   function selectImage(file) {
     setChamps(id, file)
@@ -54,7 +57,8 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
       <div className={`champion_picker_container ${showDropdown ? "overflow-scroll" : "overflow-hidden"}`}>
         {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ}_0.png`} alt={`${champ}`}/> :
           <div className='champion_choose'>
-          {filenames.map((f, index) => 
+            <input autoFocus value={champName} onChange={(e) => handleType(e.target.value)} className='champion-input' placeholder="Enter Champion" type="text"/>
+          {filenames.filter((f) => f.toUpperCase().startsWith(champName.toUpperCase())).map((f, index) => 
           <div key ={index} className={`champion-icon-container champs-icon-width ${f === champ && f !== "plus_sign" ? "champion-icon-container-selected" : ""}`}>
             <div className={` ${f === "plus_sign" ? "plus-sign-div" : "champion_icon_div" }'`} >
               <img onClick={() => selectImage(f)} src={`/images/champion/${f}.png`} alt={`${f}`}/>

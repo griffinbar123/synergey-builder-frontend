@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 // import 
 import "./champion-picker.css"
 
@@ -60,11 +60,32 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
     return f.toUpperCase().startsWith(champName.toUpperCase())
   }
 
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setShowDropdown(false)
+        }
+      }
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef);
 
   // console.log(filenames)
   
   return ( 
-    <div className={`champion-border-module ${style} ${showDropdown && "module-aspect-ratio"} ${isSafari ? "safari-container":  ""}`}>
+    <div ref={wrapperRef} className={`champion-border-module ${style} ${showDropdown && "module-aspect-ratio"} ${isSafari ? "safari-container":  ""}`}>
       <div className={`champion_picker_container ${showDropdown ? "overflow-scroll" : "overflow-hidden"}`}>
         {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ}_0.png`} alt={`${champ}`}/> :
           <div className='champion_choose'>

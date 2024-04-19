@@ -18,7 +18,7 @@ const requestOptions = {
 };
 let url = "https://synergy-builder-server-1.onrender.com"
 // let url = "http://localhost:5000"
-// fetch(`${url}/api/champs`, requestOptions)
+fetch(`${url}/api/champs`, requestOptions)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

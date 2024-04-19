@@ -49,6 +49,17 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
     return s
   }
 
+  function filterFileFunc(f) {
+    if(f === 'plus_sign')
+      f = ''
+    if(f === "MonkeyKing")
+      f = "Wukong"
+    let lastInd = getLastUpperIndex(f)
+      if(lastInd > 0)
+        f = f.substring(0, lastInd) + " " + f.substring(lastInd, f.length)
+    return f.toUpperCase().startsWith(champName.toUpperCase())
+  }
+
 
   // console.log(filenames)
   
@@ -58,7 +69,7 @@ function ChampionPicker({champ, setChamps, id, blue_team}) {
         {!showDropdown ? <img onClick={() => selectMain()} src={`/images/loading/${champ}_0.png`} alt={`${champ}`}/> :
           <div className='champion_choose'>
             <input autoFocus value={champName} onChange={(e) => handleType(e.target.value)} className='champion-input' placeholder="Enter Champion" type="text"/>
-          {filenames.filter((f) => f.toUpperCase().startsWith(champName.toUpperCase())).map((f, index) => 
+          {filenames.filter(filterFileFunc).map((f, index) => 
           <div key ={index} className={`champion-icon-container champs-icon-width ${f === champ && f !== "plus_sign" ? "champion-icon-container-selected" : ""}`}>
             <div className={` ${f === "plus_sign" ? "plus-sign-div" : "champion_icon_div" }'`} >
               <img onClick={() => selectImage(f)} src={`/images/champion/${f}.png`} alt={`${f}`}/>

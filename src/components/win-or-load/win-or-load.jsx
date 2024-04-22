@@ -12,8 +12,8 @@ async function getWinner(tier, champs) {
       body: JSON.stringify({"tier":tier, "participants": champs})
   };
   // let url = "https://synergy-builder-server.onrender.com"
-  // let url = "http://localhost:5000"
-  let url = "https://synergy-builder-server-1.onrender.com"
+  let url = "http://localhost:5000"
+  // let url = "https://synergy-builder-server-1.onrender.com"
 
   var res = await fetch(`${url}/api/champs`, requestOptions)
   var js = await res.json()

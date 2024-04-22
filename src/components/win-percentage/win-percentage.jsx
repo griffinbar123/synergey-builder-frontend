@@ -23,7 +23,7 @@ function WinPercantage({width, percentage}) {
             <div className='blue-victory image'>
                 <img src='/images/vict.png' alt='blue victory'/>
             </div>
-            <span className={`text-percent ${max_percentage === blue_percentage ? "blue-color": "red-color"}`}>{`${Math.floor(max_percentage * 100)}%`}</span>
+            <span className={`text-percent ${max_percentage === blue_percentage ? "blue-color": "red-color"}`}>{`${(max_percentage * 100).toFixed(2)}%`}</span>
             <div className='red-victory image'>
                 <img src='/images/vict.png' alt='blue victory'/>
             </div>
